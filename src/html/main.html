@@ -1,0 +1,357 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../output.css" rel="stylesheet">
+
+</head>
+
+<body style="background-image: url('/src/image/bg.png');">
+    <!-- component -->
+    <div class="flex h-screen overflow-hidden bg-transparent p-12 ">
+        <!-- Navigation menu -->
+        <div class="flex mr-3 rounded-lg overflow-hidden " style="flex: 4;">
+            <div class="bg-white ">
+                <div class=" flex flex-col mb-4 cursor-pointer py-6 px-3 bg-custom-gradient h-full items-center ">
+                    <div class="relative group">
+                        <!-- Nút hoặc biểu tượng mà khi hover sẽ hiện menu -->
+                        <div
+                            class="flex items-center mb-4 cursor-pointer p-2 rounded-md transform transition-transform duration-300 hover:scale-150">
+                            <div>
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                                    alt="avatar" class="d-flex align-self-center me-3" width="100">
+                                <span class="badge bg-success badge-dot"></span>
+                            </div>
+                        </div>
+
+                        <!-- Menu xuất hiện khi hover -->
+                        <div
+                            class="absolute left-0 top-full  w-48 bg-white rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden group-hover:block z-10">
+                            <ul class="py-2">
+                                <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Nâng cấp tài khoản</li>
+                                <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Hồ sơ của bạn</li>
+                                <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Cài đặt</li>
+                                <li class="border-t my-2"></li> <!-- Dòng kẻ phân cách -->
+                                <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Đăng xuất</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div
+                        class="flex items-center mb-4 cursor-pointer  transform transition-transform duration-300 hover:scale-150 p-2 rounded-md">
+                        <div class="w-12 h-12 text-white  flex justify-center items-center ">
+                            <img src="/src/image/home.svg" alt="comment dots" class="w-9">
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-center mb-4 cursor-pointer  transform transition-transform duration-300 hover:scale-150 p-2 rounded-md">
+                        <div class="w-12 h-12 text-white  flex justify-center items-center ">
+                            <img src="/src/image/save.svg" alt="comment dots" class="w-6">
+                        </div>
+                    </div>
+                    <div class="w-5">
+                        <img src="/src/image/ellipsis1.svg" alt="ellipsis">
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Sidebar -->
+            <div class=" bg-white border-gray-300 px-3 p-8 ">
+                <!-- Sidebar Header -->
+                <header class="p-3 w-full flex justify-center items-center text-black ">
+                    <div class="input-group mb-3 flex justify-between w-full ">
+                        <div class="w-full relative flex ">
+                            <input type="text"
+                                class="w-full rounded-md text-gray-800 outline-none bg-gray-200 p-3 pr-12"
+                                placeholder="Search">
+
+                            <button class="absolute inset-y-0 right-0 px-3 flex items-center h-full bg-transparent"
+                                type="button" id="button-addon2">
+                                <img src="/src/image/magnifying-glass.svg" alt="magnifying glass" class="w-5 h-5 ">
+                            </button>
+                        </div>
+                    </div>
+                </header>
+                <!-- Contact List -->
+                <div class="overflow-y-auto h-screen p-3 mb-9 pb-20 mr-2">
+                    <div class="flex items-center mb-4 cursor-pointer hover:bg-gray-100 p-2 rounded-md  ">
+                        <div>
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                                alt="avatar" class="d-flex align-self-center me-3 mr-3" width="60">
+                            <span class="badge bg-success badge-dot"></span>
+                        </div>
+                        <div class="flex-1 ">
+                            <h2 class="text-lg font-semibold ">Alice</h2>
+                            <p class="text-gray-600">Hoorayy!!</p>
+                        </div>
+                        <div>
+                            <p class="small text-muted mb-1">Yesterday</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center mb-4 cursor-pointer hover:bg-gray-100 p-2 rounded-md">
+                        <div>
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
+                                alt="avatar" class="d-flex align-self-center me-3 mr-3" width="60">
+                            <span class="badge bg-warning badge-dot"></span>
+                        </div>
+                        <div class="flex-1">
+                            <h2 class="text-lg font-semibold">Martin</h2>
+                            <p class="text-gray-600">That pizza place was amazing! We should go
+                                again sometime. 🍕</p>
+                        </div>
+                        <div>
+                            <p class="small text-muted mb-1"></p>
+                        </div>
+                    </div>
+
+
+                    <div class="flex items-center mb-4 cursor-pointer hover:bg-gray-100 p-2 rounded-md">
+                        <div>
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
+                                alt="avatar" class="d-flex align-self-center me-3 mr-3" width="60">
+                            <span class="badge bg-success badge-dot"></span>
+                        </div>
+                        <div class="flex-1">
+                            <h2 class="text-lg font-semibold">Charlie</h2>
+                            <p class="text-gray-600">Hey, do you have any recommendations for a good movie to watch?</p>
+                        </div>
+                    </div>
+
+
+                    <div class="flex items-center mb-4 cursor-pointer hover:bg-gray-100 p-2 rounded-md">
+                        <div>
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava4-bg.webp"
+                                alt="avatar" class="d-flex align-self-center me-3 mr-3" width="60">
+                            <span class="badge bg-danger badge-dot"></span>
+                        </div>
+                        <div class="flex-1">
+                            <h2 class="text-lg font-semibold">David</h2>
+                            <p class="text-gray-600">I just finished reading a great book! It was so captivating.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center mb-4 cursor-pointer hover:bg-gray-100 p-2 rounded-md">
+                        <div>
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava5-bg.webp"
+                                alt="avatar" class="d-flex align-self-center me-3 mr-3" width="60">
+                            <span class="badge bg-warning badge-dot"></span>
+                        </div>
+                        <div class="flex-1">
+                            <h2 class="text-lg font-semibold">Ella</h2>
+                            <p class="text-gray-600">What's the plan for this weekend? Anything fun?</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center mb-4 cursor-pointer hover:bg-gray-100 p-2 rounded-md">
+                        <div>
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
+                                alt="avatar" class="d-flex align-self-center me-3 mr-3" width="60">
+                            <span class="badge bg-success badge-dot"></span>
+                        </div>
+                        <div class="flex-1">
+                            <h2 class="text-lg font-semibold">Fiona</h2>
+                            <p class="text-gray-600">I heard there's a new exhibit at the art museum. Interested?</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center mb-4 cursor-pointer hover:bg-gray-100 p-2 rounded-md">
+                        <div>
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava4-bg.webp"
+                                alt="avatar" class="d-flex align-self-center me-3 mr-3" width="60">
+                            <span class="badge bg-danger badge-dot"></span>
+                        </div>
+                        <div class="flex-1">
+                            <h2 class="text-lg font-semibold">George</h2>
+                            <p class="text-gray-600">I tried that new cafe downtown. The coffee was fantastic!</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center mb-4 cursor-pointer hover:bg-gray-100 p-2 rounded-md">
+                        <div>
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
+                                alt="avatar" class="d-flex align-self-center me-3 mr-3" width="60">
+                            <span class="badge bg-success badge-dot"></span>
+                        </div>
+                        <div class="flex-1">
+                            <h2 class="text-lg font-semibold">Hannah</h2>
+                            <p class="text-gray-600">I'm planning a hiking trip next month. Want to join?</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center mb-4 cursor-pointer hover:bg-gray-100 p-2 rounded-md">
+                        <div>
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava5-bg.webp"
+                                alt="avatar" class="d-flex align-self-center me-3 mr-3" width="60">
+                            <span class="badge bg-warning badge-dot"></span>
+                        </div>
+                        <div class="flex-1">
+                            <h2 class="text-lg font-semibold">Ian</h2>
+                            <p class="text-gray-600">Let's catch up soon. It's been too long!</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center mb-4 cursor-pointer hover:bg-gray-100 p-2 rounded-md">
+                        <div>
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava4-bg.webp"
+                                alt="avatar" class="d-flex align-self-center me-3 mr-3" width="60">
+                            <span class="badge bg-danger badge-dot"></span>
+                        </div>
+                        <div class="flex-1">
+                            <h2 class="text-lg font-semibold">Jack</h2>
+                            <p class="text-gray-600">Remember that hilarious joke you told me? I can't stop laughing!
+                            </p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- Main Chat Area ------------------------------------------------------------------------->
+
+        <div class="flex flex-col rounded-lg overflow-hidden bg-white" style="flex: 6;">
+            <!-- Chat Header -->
+            <header class="bg-white p-8 text-gray-700 flex justify-between items-center">
+                <div class="flex items-center">
+                    <div>
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                            alt="avatar" class="mr-3" width="60">
+                        <span class="badge bg-success badge-dot"></span>
+                    </div>
+                    <h1 class="text-2xl font-semibold">Alice</h1>
+                </div>
+                <div>
+                    <img src="/src/image/ellipsis.svg" alt="ellipsis" class="w-5">
+                </div>
+            </header>
+
+            <!-- Chat Messages -->
+            <div class="flex-1 overflow-y-auto p-8 pb-36">
+                <!-- Incoming Message -->
+                <div class="flex mb-4 cursor-pointer">
+                    <div>
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                            alt="avatar" class="mr-3" width="50">
+                        <span class="badge bg-success badge-dot"></span>
+                    </div>
+                    <div class="flex max-w-96 bg-white rounded-lg p-3 gap-3">
+                        <p class="text-gray-700">Hey Bob, how's it going?</p>
+                    </div>
+                </div>
+
+                <!-- Outgoing Message -->
+                <div class="flex justify-end mb-4 cursor-pointer">
+                    <div class="flex max-w-96 bg-custom-gradient text-white rounded-lg p-3 gap-3 mr-3">
+                        <p>Hi Alice! I'm good, just finished a great book. How about you?</p>
+                    </div>
+                    <div>
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
+                            alt="avatar" class="d-flex align-self-center me-3 " width="50">
+                        <span class="badge bg-success badge-dot"></span>
+                    </div>
+                </div>
+                <div class="flex justify-end mb-4 cursor-pointer">
+                    <div class="flex max-w-96 bg-custom-gradient text-white rounded-lg p-3 gap-3 mr-3">
+                        <p>Hi Alice! I'm good, just finished a great book. How about you?</p>
+                    </div>
+                    <div>
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
+                            alt="avatar" class="d-flex align-self-center me-3 " width="50">
+                        <span class="badge bg-success badge-dot"></span>
+                    </div>
+                </div>
+                <div class="flex justify-end mb-4 cursor-pointer">
+                    <div class="flex max-w-96 bg-custom-gradient text-white rounded-lg p-3 gap-3 mr-3">
+                        <p>Hi Alice! I'm good, just finished a great book. How about you?</p>
+                    </div>
+                    <div>
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
+                            alt="avatar" class="d-flex align-self-center me-3 " width="50">
+                        <span class="badge bg-success badge-dot"></span>
+                    </div>
+                </div>
+                <div class="flex justify-end mb-4 cursor-pointer">
+                    <div class="flex max-w-96 bg-custom-gradient text-white rounded-lg p-3 gap-3 mr-3">
+                        <p>Hi Alice! I'm good, just finished a great book. How about you?</p>
+                    </div>
+                    <div>
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
+                            alt="avatar" class="d-flex align-self-center me-3 " width="50">
+                        <span class="badge bg-success badge-dot"></span>
+                    </div>
+                </div>
+                <div class="flex justify-end mb-4 cursor-pointer">
+                    <div class="flex max-w-96 bg-custom-gradient text-white rounded-lg p-3 gap-3 mr-3">
+                        <p>Hi Alice! I'm good, just finished a great book. How about you?</p>
+                    </div>
+                    <div>
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
+                            alt="avatar" class="d-flex align-self-center me-3 " width="50">
+                        <span class="badge bg-success badge-dot"></span>
+                    </div>
+                </div>
+                <div class="flex justify-end mb-4 cursor-pointer">
+                    <div class="flex max-w-96 bg-custom-gradient text-white rounded-lg p-3 gap-3 mr-3">
+                        <p>Hi Alice! I'm good, just finished a great book. How about you?</p>
+                    </div>
+                    <div>
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
+                            alt="avatar" class="d-flex align-self-center me-3 " width="50">
+                        <span class="badge bg-success badge-dot"></span>
+                    </div>
+                </div>
+                <div class="flex justify-end mb-4 cursor-pointer">
+                    <div class="flex max-w-96 bg-custom-gradient text-white rounded-lg p-3 gap-3 mr-3">
+                        <p>Hi Alice! I'm good, just finished a great book. How about you?</p>
+                    </div>
+                    <div>
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
+                            alt="avatar" class="d-flex align-self-center me-3 " width="50">
+                        <span class="badge bg-success badge-dot"></span>
+                    </div>
+                </div>
+                <div class="flex justify-end mb-4 cursor-pointer">
+                    <div class="flex max-w-96 bg-custom-gradient text-white rounded-lg p-3 gap-3 mr-3">
+                        <p>Hi Alice! I'm good, just finished a great book. How about you?</p>
+                    </div>
+                    <div>
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
+                            alt="avatar" class="d-flex align-self-center me-3 " width="50">
+                        <span class="badge bg-success badge-dot"></span>
+                    </div>
+                </div>
+                <div class="flex justify-end mb-4 cursor-pointer">
+                    <div class="flex max-w-96 bg-custom-gradient text-white rounded-lg p-3 gap-3 mr-3">
+                        <p>Hi Alice! I'm good, just finished a great book. How about you?</p>
+                    </div>
+                    <div>
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
+                            alt="avatar" class="d-flex align-self-center me-3 " width="50">
+                        <span class="badge bg-success badge-dot"></span>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Chat Input -->
+            <footer class="bg-white p-8">
+                <div class="flex items-center">
+                    <input type="text" placeholder="Type a message..."
+                        class="w-full p-4 rounded-md focus:outline-none focus:border-blue-500 bg-gray-200">
+                    <button class="text-white p-2 rounded-md ml-2">
+                        <img src="/src/image/paperclip.svg" alt="paperclip" class="w-6 h-8">
+                    </button>
+                    <button class="text-white p-2 rounded-md ml-2">
+                        <img src="/src/image/paper-plane.svg" alt="paper plane" class="w-8">
+                    </button>
+                </div>
+            </footer>
+        </div>
+
+    </div>
+    <script <script src="main.js"></script>
+</body>
+
+</html>
