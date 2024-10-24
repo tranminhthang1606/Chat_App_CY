@@ -37,7 +37,7 @@ function clearError(inputElement) {
   }
 }
 
-const url = "https://6718a8b87fc4c5ff8f4a6f52.mockapi.io/api/users";
+const url = "http://192.168.1.183:8000/api/person";
 // sigup
 btnSignUp.addEventListener("click", async (e) => {
   e.preventDefault();
@@ -74,7 +74,7 @@ btnSignUp.addEventListener("click", async (e) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name: nameSignUp.value,
+          username: nameSignUp.value,
           email: emailSignUp.value.trim(),
           password_hash: passwordSignUp.value.trim(),
         }),
@@ -111,7 +111,12 @@ btnSignIn.addEventListener("click", async (e) => {
   }
   if (isValid) {
     try {
-      const response = await fetch(url);
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       const users = await response.json();
       const user = users.find(
         (user) =>
@@ -127,4 +132,6 @@ btnSignIn.addEventListener("click", async (e) => {
       console.error("Lỗi đăng nhập:", error);
     }
   }
+
+
 });
