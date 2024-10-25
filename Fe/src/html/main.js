@@ -43,7 +43,7 @@ const fileInput = document.getElementById('fileInput');
 console.log(current_user);
 let conversation_id;
 const url = "http://127.0.0.1:8000/api";
-//http://127.0.0.1:8000 http://192.168.1.183:8000/api/user
+//http://127.0.0.1:8000 http://192.168.1.183:8000/
 
 function openPopup() {
     document.getElementById('popup').classList.remove('hidden');
@@ -113,18 +113,18 @@ let renderGroupList = async function () {
     data = await data.json();
     console.log(data);
     contact_list.innerHTML = '';
-    let check ;
+    let check;
     let arrayData = [];
     data.forEach(element => {
         check = element.users.filter(user => user.id == current_user.id);
         console.log(check);
-        if (check.length!=0){
+        if (check.length != 0) {
             arrayData.push(element);
         }
-        
+
     });
     console.log(arrayData);
-    
+
     arrayData.forEach(group => {
         console.log(group);
 
@@ -137,28 +137,7 @@ let renderGroupList = async function () {
             loadMessages(conversations);
 
             // handleFile(conversations)
-            sentBtn.addEventListener('click', async function () {
-                let messages = inputMessage.value;
-                fetch(`${url}/conversation/${conversations}/message`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        user_id: current_user.id,
-                        conversation_id: conversations,
-                        message: messages
-                    })
-                }).then(res => res.json())
-                    .then((res) => {
-                        console.log(res);
-                        loadMessages(conversations);
-                    }).catch(error => {
-                        console.error('Lỗi:', error);
-                    });
-                chatBox.scrollTop = chatBox.scrollHeight;
-                inputMessage.value = '';
-            })
+
 
 
         })
@@ -199,28 +178,7 @@ let renderContactList = async function () {
                     loadMessages(conversations);
 
                     handleFile(conversations)
-                    sentBtn.addEventListener('click', async function () {
-                        let messages = inputMessage.value;
-                        fetch(`${url}/conversation/${conversations}/message`, {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify({
-                                user_id: current_user.id,
-                                conversation_id: conversations,
-                                message: messages
-                            })
-                        }).then(res => res.json())
-                            .then((res) => {
-                                console.log(res);
-                                loadMessages(conversations);
-                            }).catch(error => {
-                                console.error('Lỗi:', error);
-                            });
-                        chatBox.scrollTop = chatBox.scrollHeight;
-                        inputMessage.value = '';
-                    })
+
 
                 })
         })
@@ -244,6 +202,38 @@ let renderContactList = async function () {
     })
     console.log(friends);
 }
+
+sentBtn.addEventListener('click', async function () {
+    let messages = inputMessage.value;
+    console.log({
+        user_id: current_user.id,
+        conversation_id: conversation_id,
+        message: messages
+    });
+
+    fetch(`${url}/conversation/${conversation_id}/message`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            user_id: current_user.id,
+            conversation_id: conversation_id,
+            message: messages
+        })
+    }).then(res => res.json())
+        .then((res) => {
+            console.log(res);
+            loadMessages(conversation_id);
+        }).catch(error => {
+            console.error('Lỗi:', error);
+        });
+    chatBox.scrollTop = chatBox.scrollHeight;
+    inputMessage.value = '';
+})
+
+
+
 const Logout = () => {
     localStorage.removeItem('user');
     window.location.href = '../authorize.html';
