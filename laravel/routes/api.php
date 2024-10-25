@@ -17,14 +17,14 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-Route::get('/user',[UserController::class,'index']);
-Route::post('/user',[UserController::class,'store']);
+
+Route::get('/user', [UserController::class, 'index']);
+Route::post('/user', [UserController::class, 'store']);
 Route::post('/conversation', action: [ChatController::class, 'createConversation']);
 Route::post('/group_conversation', action: [ChatController::class, 'createGroupConversation']);
 Route::get('/group_conversation', action: [ChatController::class, 'groupConversation']);
 
 Route::get('/user/{user_id}/{friend_id}/conversations', [ChatController::class, 'getUserConversations']);
 Route::get('/group/{group_id}//conversations', [ChatController::class, 'getGroupConversations']);
-
-Route::post('/conversation/{conversation_id}/message', [ChatController::class, 'sendMessage']);
 Route::get('/conversation/{conversation_id}/messages', [ChatController::class, 'getMessages']);
+Route::post('/conversation/{conversation_id}/message', [ChatController::class, 'sendMessage']);
