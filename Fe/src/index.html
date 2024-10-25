@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/output.css" />
+    <link rel="stylesheet" href="assets/custom.css" />
+  </head>
+
+  <body
+    class="flex flex-col justify-center items-center mt-[-20px] mx-[50px] bg-cover bg-no-repeat bg-center h-screen"
+    style="background-image: url('./assets/img/bg.png')"
+  >
+    <div
+      class="container shadow-custom-layered bg-[#fff] relative w-[768px] max-w-full min-h-[480px] rounded-[10px] overflow-hidden"
+      id="container"
+    >
+      <!-- Sign Up Form -->
+      <div
+        class="form-container sign-up-container absolute top-0 left-0 w-1/2 h-full transition-all ease-in-out duration-[600ms] opacity-0 z-10"
+      >
+        <form
+          class="flex flex-col bg-white items-center text-center h-full justify-center px-[50px]"
+        >
+          <h1 class="font-bold">Create Account</h1>
+          <div class="social-container flex mt-5">
+            <a
+              href="#"
+              class="social text-[#333] text-sm border-2 border-[#DDDDDD] rounded-[50%] inline-flex justify-center items-center mx-1 h-10 w-10"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="#"
+              class="social text-[#333] text-sm border-2 border-[#DDDDDD] rounded-[50%] inline-flex justify-center items-center mx-1 h-10 w-10"
+              ><i class="fab fa-google-plus-g"></i
+            ></a>
+            <a
+              href="#"
+              class="social text-[#333] text-sm border-2 border-[#DDDDDD] rounded-[50%] inline-flex justify-center items-center mx-1 h-10 w-10"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
+          <span class="text-sm">or use your email for registration</span>
+          <input
+            class="input bg-[#eee] border-none px-[15px] py-[15px] my-[10px] w-full rounded-3xl shadow-custom-inset"
+            type="text"
+            placeholder="Name"
+            id="nameSignUp"
+          />
+          <input
+            class="input bg-[#eee] border-none px-[15px] py-[15px] my-[10px] w-full rounded-3xl shadow-custom-inset"
+            type="email"
+            placeholder="Email"
+            id="email"
+          />
+          <input
+            class="input bg-[#eee] border-none px-[15px] py-[15px] my-[10px] w-full rounded-3xl shadow-custom-inset"
+            type="password"
+            placeholder="Password"
+            id="passwordSignUp"
+          />
+          <button
+            class="active:scale-95 mt-5 focus:outline-none rounded-[20px] border-2 border-[#ff7e5f] bg-[#ff7e5f] text-white text-[12px] font-bold px-[45px] py-[12px] tracking-[1px] uppercase transition-transform ease-in duration-[80ms]"
+            id="signUp-btn"
+          >
+            Sign Up
+          </button>
+        </form>
+      </div>
+
+      <!-- Sign In Form -->
+      <div
+        class="form-container sign-in-container absolute top-0 left-0 w-1/2 h-full transition-all ease-in-out duration-[600ms] z-20"
+      >
+        <form
+          class="flex flex-col bg-white items-center text-center h-full justify-center px-[50px]"
+          id="sign-in-form"
+        >
+          <h1 class="font-bold">Sign in</h1>
+          <div class="social-container flex mt-5">
+            <a
+              href="#"
+              class="social text-[#333] text-sm border-2 border-[#DDDDDD] rounded-[50%] inline-flex justify-center items-center mx-1 h-10 w-10"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="#"
+              class="social text-[#333] text-sm border-2 border-[#DDDDDD] rounded-[50%] inline-flex justify-center items-center mx-1 h-10 w-10"
+              ><i class="fab fa-google-plus-g"></i
+            ></a>
+            <a
+              href="#"
+              class="social text-[#333] text-sm border-2 border-[#DDDDDD] rounded-[50%] inline-flex justify-center items-center mx-1 h-10 w-10"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
+          <span class="text-sm">or use your account</span>
+          <input
+            class="input bg-[#eee] border-none px-[15px] py-[15px] my-[10px] w-full rounded-3xl shadow-custom-inset"
+            type="email"
+            placeholder="Email"
+            id="emailSignIn"
+            placeholder
+          />
+          <input
+            class="input bg-[#eee] border-none px-[15px] py-[15px] my-[10px] w-full rounded-3xl shadow-custom-inset"
+            type="password"
+            placeholder="Password"
+            id="passwordSignIn"
+          />
+          <a href="#" class="text-sm text-gray-500">Forgot your password?</a>
+          <button
+            class="active:scale-95 mt-5 focus:outline-none rounded-[20px] border-2 border-[#ff7e5f] bg-[#ff7e5f] text-white text-[12px] font-bold px-[45px] py-[12px] tracking-[1px] uppercase transition-transform ease-in duration-[80ms]"
+            id="signIn-btn"
+          >
+            Sign In
+          </button>
+        </form>
+      </div>
+
+      <!-- Overlay -->
+      <div
+        class="overlay-container absolute top-0 left-1/2 w-1/2 overflow-hidden h-full transition-transform ease-in-out duration-[600s] z-30"
+      >
+        <div
+          class="overlay bg-custom-gradient bg-no-repeat bg-cover bg-[0_0] text-white relative left-[-100%] h-full w-[200%] translate-x-0 transition-transform duration-600 ease-in-out"
+        >
+          <div
+            class="overlay-panel overlay-left absolute top-0 w-1/2 h-full flex flex-col justify-center items-center text-center px-10 transform duration-[600ms] translate-x-[-20%] ease-in-out"
+          >
+            <h1 class="font-bold text-white">Welcome Back!</h1>
+            <p class="text-white text-sm tracking-[0.5px] mt-5 mx-[30px]">
+              To keep connected with us please login with your personal info
+            </p>
+            <button
+              class="bg-transparent mt-5 active:scale-95 focus:outline-none rounded-[20px] border-2 border-[#ffffff] bg-[#ff7e5f] text-white text-[12px] font-bold px-[45px] py-[12px] tracking-[1px] uppercase transition-transform ease-in duration-[80ms]"
+              id="signIn"
+            >
+              Sign In
+            </button>
+          </div>
+
+          <div
+            class="overlay-panel overlay-right absolute top-0 right-0 w-1/2 h-full flex flex-col justify-center items-center text-center px-10 transition-transform duration-[600ms] translate-x-0 ease-in-out"
+          >
+            <h1 class="font-bold text-white">Hello, Friend!</h1>
+            <p class="text-white text-sm tracking-[0.5px] mt-5 mx-[30px]">
+              Enter your personal details and start journey with us
+            </p>
+            <button
+              class="bg-transparent mt-5 rounded-[20px] active:scale-95 focus:outline-none border-2 border-[#FFFFFF] bg-[#ff7e5f] text-white text-[12px] font-bold px-[45px] py-[12px] tracking-[1px] uppercase transition-transform ease-in duration-[80ms]"
+              id="signUp"
+            >
+              Sign Up
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

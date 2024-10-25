@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../assets/output.css" rel="stylesheet">
+
+</head>
+
+<body style="background-image: url('../image/bg.png');">
+    <!-- component -->
+    <div class="flex h-screen overflow-hidden bg-transparent p-12 ">
+        <!-- Navigation menu -->
+        <div class="flex mr-3 rounded-lg overflow-hidden " style="flex: 4;">
+            <div class="bg-white ">
+                <div class=" flex flex-col mb-4 cursor-pointer py-6 px-3 bg-custom-gradient h-full items-center ">
+                    <div class="relative group">
+                        <!-- Nút hoặc biểu tượng mà khi hover sẽ hiện menu -->
+                        <div
+                            class="flex items-center mb-4 cursor-pointer p-2 rounded-md transform transition-transform duration-300 hover:scale-150">
+                            <div>
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                                    alt="avatar" class="d-flex align-self-center me-3" width="100">
+                                <span class="badge bg-success badge-dot"></span>
+                            </div>
+                        </div>
+
+                        <!-- Menu xuất hiện khi hover -->
+                        <div
+                            class="absolute left-0 top-full  w-48 bg-white rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden group-hover:block z-10">
+                            <ul class="py-2">
+                                <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Nâng cấp tài khoản</li>
+                                <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Hồ sơ của bạn</li>
+                                <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Cài đặt</li>
+                                <li class="border-t my-2"></li> <!-- Dòng kẻ phân cách -->
+                                <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Đăng xuất</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div
+                        class="flex items-center mb-4 cursor-pointer  transform transition-transform duration-300 hover:scale-150 p-2 rounded-md">
+                        <div onclick="renderContactList()" class="w-12 h-12 text-white  flex justify-center items-center ">
+                            <img src="../image/home.svg" alt="comment dots" class="w-9">
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-center mb-4 cursor-pointer  transform transition-transform duration-300 hover:scale-150 p-2 rounded-md">
+                        <div onclick="openPopup()" class="w-12 h-12 text-white  flex justify-center items-center ">
+                            <img src="../image/group-new.svg" alt="TN" class="w-6">
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-center mb-4 cursor-pointer  transform transition-transform duration-300 hover:scale-150 p-2 rounded-md">
+                        <div onclick="renderGroupList()" class="w-12 h-12 text-white  flex justify-center items-center ">
+                            <img src="../image/group-chat.svg" alt="TN" class="w-6">
+                        </div>
+                    </div>
+                    <div class="w-5" onclick="Logout()">
+                        <img src="../image/logout.svg" alt="ellipsis">
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Sidebar -->
+            <div class=" bg-white border-gray-300 px-3 p-8 ">
+                <!-- Sidebar Header -->
+                <header class="p-3 w-full flex justify-center items-center text-black ">
+                    <div class="input-group mb-3 flex justify-between w-full ">
+                        <div id="helloUser" class="w-full relative flex ">
+                            <!-- <input type="text"
+                                class="w-full rounded-md text-gray-800 outline-none bg-gray-200 p-3 pr-12"
+                                placeholder="Search">
+
+                            <button class="absolute inset-y-0 right-0 px-3 flex items-center h-full bg-transparent"
+                                type="button" id="button-addon2">
+                                <img src="../image/magnifying-glass.svg" alt="magnifying glass" class="w-5 h-5 ">
+                            </button> -->
+                        </div>
+                    </div>
+                </header>
+                <hr>
+                <!-- Contact List -->
+                <div id="contact_list" class="overflow-y-auto h-screen p-3 mb-9 pb-20 mr-2">
+                   
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Main Chat Area ------------------------------------------------------------------------->
+
+        <div class="flex flex-col rounded-lg overflow-hidden bg-white" style="flex: 6;">
+            <!-- Chat Header -->
+            <header class="bg-white p-8 text-gray-700 flex justify-between items-center">
+                <div class="flex items-center">
+                    <div>
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                            alt="avatar" class="mr-3" width="60">
+                        <span class="badge bg-success badge-dot"></span>
+                    </div>
+                    <h1 id="chat_friend_name" class="text-2xl font-semibold">Alice</h1>
+                </div>
+                <div>
+                    <img src="../image/ellipsis.svg" alt="ellipsis" class="w-5">
+                </div>
+            </header>
+
+            <!-- Chat Messages -->
+            <div id="chat-box" class="flex-1 overflow-y-auto p-8">
+                <!-- Incoming Message -->
+                
+
+                <!-- Outgoing Message -->
+                
+            </div>
+            <!-- Chat Input -->
+            <footer class="bg-white p-8">
+                <div class="flex items-center">
+                    <input type="text" id="inputMessage" placeholder="Type a message..."
+                        class="w-full p-4 rounded-md focus:outline-none focus:border-blue-500 bg-gray-200">
+                    <button class="text-white p-2 rounded-md ml-2" id="attachFile">
+                        <img src="../image/paperclip.svg" alt="paperclip" class="w-6 h-8">
+                        <input type="file" id="fileInput" style="display: none;">
+                    </button>
+                    <button class="text-white p-2 rounded-md ml-2" id="sentBtn">
+                        <img src="../image/paper-plane.svg" alt="paper plane" class="w-8">
+                    </button>
+                </div>
+            </footer>
+        </div>
+
+    </div>
+
+    <div id="popup-overlay" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden"></div>
+
+<!-- Popup container -->
+<div id="popup" class="fixed inset-0 flex items-center justify-center hidden">
+  <div class="bg-white rounded-lg shadow-lg w-full max-w-md mx-4">
+    <!-- Header -->
+    <div class="flex justify-between items-center bg-custom-gradient text-white p-4 rounded-t-lg">
+      <h2 class="text-lg font-semibold">Tạo Nhóm Mới</h2>
+      <button class="text-xl" onclick="closePopup()">&times;</button>
+    </div>
+
+    <!-- Popup content -->
+    <div class="p-4">
+      <form id="create-group-form">
+        <!-- Group Name -->
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700">Tên Nhóm</label>
+          <input id="groupName" type="text" class="w-full border border-gray-300 rounded p-2 mt-1 focus:outline-none focus:ring focus:border-blue-500" placeholder="Nhập tên nhóm">
+        </div>
+
+        <!-- Add Members -->
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700">Thêm Thành Viên</label>
+          <input id="friendEmail" type="text" class="w-full border border-gray-300 rounded p-2 mt-1 focus:outline-none focus:ring focus:border-blue-500" placeholder="Nhập id người dùng ngăn cách bởi dấu ,">
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-end space-x-2">
+          <button type="button" class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400" onclick="closePopup()">Hủy</button>
+          <button type="submit" class="bg-custom-gradient text-white px-4 py-2 rounded hover:bg-custom-gradient">Tạo Nhóm</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+    <script src="main.js"></script>
+</body>
+
+</html>
