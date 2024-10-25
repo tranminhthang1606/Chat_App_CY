@@ -37,7 +37,8 @@ function clearError(inputElement) {
   }
 }
 
-const url = "http://192.168.1.183:8000/api/person";
+const url = "http://127.0.0.1:8000/api";
+//http://127.0.0.1:8000 http://192.168.1.183:8000/api/user
 // sigup
 btnSignUp.addEventListener("click", async (e) => {
   e.preventDefault();
@@ -68,18 +69,37 @@ btnSignUp.addEventListener("click", async (e) => {
   }
   if (isValid) {
     try {
-      const res = await fetch(url, {
+      const res = await fetch(url + '/user', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          username: nameSignUp.value,
+          name: nameSignUp.value,
           email: emailSignUp.value.trim(),
-          password_hash: passwordSignUp.value.trim(),
+          password: passwordSignUp.value.trim(),
         }),
       });
       const data = await res.json();
+      console.log(data);
+
+      fetch(url + '/conversation', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: null, // Nếu là chat 1-1, để trống name
+          user_id: data.user.id,
+        })
+      }).then(response => response.json())
+        .then(data => {
+          console.log(data);
+          
+        })
+        .catch(error => {
+          console.error('Lỗi:', error);
+        });
       console.log("Đăng ký thành công:", data);
     } catch (err) {
       console.error("Lỗi đăng ký:", err);
@@ -111,7 +131,7 @@ btnSignIn.addEventListener("click", async (e) => {
   }
   if (isValid) {
     try {
-      const response = await fetch(url, {
+      const response = await fetch(url + '/user', {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -121,12 +141,14 @@ btnSignIn.addEventListener("click", async (e) => {
       const user = users.find(
         (user) =>
           user.email === emailSignIn.value.trim() &&
-          user.password_hash === passwordSignIn.value.trim()
+          user.password === passwordSignIn.value.trim()
       );
       if (user) {
         console.log("Đăng nhập thành công:", user);
+        localStorage.setItem('user', JSON.stringify(user));
+        window.location.href = "./html/main.html"; // Redirect to dashboard page
       } else {
-        console.log("Tài khoản không tồn tại hoặc mật khẩu không đúng!");
+        alert("Tài khoản không tồn tại hoặc mật khẩu không đúng!");
       }
     } catch (error) {
       console.error("Lỗi đăng nhập:", error);
