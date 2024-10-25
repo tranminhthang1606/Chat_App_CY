@@ -8,16 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     use HasFactory;
-
-    public function conversations() {
-        return $this->belongsToMany(Conversation::class, 'conversation_members');
+    public $fillable=['name', 'email', 'password'];
+    public function conversations()
+    {
+        return $this->belongsToMany(Conversation::class);
     }
 
-    public function messages() {
-        return $this->hasMany(Message::class, 'sender_id');
-    }
-
-    public function invitations() {
-        return $this->hasMany(GroupInvitation::class, 'receiver_id');
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
     }
 }
